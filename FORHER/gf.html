@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-color: #8e44ad; /* Purple background */
+            color: #fff;
+            position: relative; /* Needed for absolute positioning of heart collage */
+        }
+        .heart-collage {
+            position: absolute;
+            top: 20px; /* Positioning from the top */
+            left: 20px; /* Positioning from the left */
+            width: 200px; /* Width of the heart */
+            height: 200px; /* Height of the heart */
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .heart-collage img {
+            width: 80px; /* Width of individual images */
+            height: 80px; /* Height of individual images */
+            border-radius: 10px;
+            position: absolute;
+        }
+        /* Position images to form a heart shape */
+        .image1 { top: 20px; left: 60px; }
+        .image2 { top: 0px; left: 0px; }
+        .image3 { top: 0px; left: 120px; }
+        .image4 { top: 60px; left: 20px; }
+        .image5 { top: 60px; left: 100px; }
+        .image6 { top: 100px; left: 40px; }
+        .image7 { top: 100px; left: 80px; }
+        .image8 { top: 140px; left: 0px; }
+        .image9 { top: 140px; left: 40px; }
+        .image10 { top: 140px; left: 80px; }
+
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            cursor: pointer;
+            perspective: 1000px; /* Enhance 3D effect */
+            margin-top: 220px; /* Margin to move it down below the heart */
+        }
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #f7e6ff;
+            border: 2px solid #6a1b9a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background-color: #6a1b9a;
+            transform-origin: top;
+            transition: transform 0.5s ease;
+            border-bottom: 3px solid #4a148c;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            z-index: 2;
+        }
+        .flap:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: #4a148c;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px #f7e6ff;
+        }
+        .message {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            transform: translateY(-50%);
+            color: #333;
+            font-size: 1.2em;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Heart-shaped collage at the top left -->
+    <div class="heart-collage">
+        <img class="image1" src="1.jpg" alt="Collage Image 1">
+        <img class="image2" src="2.jpg" alt="Collage Image 2">
+        <img class="image3" src="3.jpg" alt="Collage Image 3">
+        <img class="image4" src="4.jpg" alt="Collage Image 4">
+        <img class="image5" src="5.jpg" alt="Collage Image 5">
+        <img class="image6" src="6.jpg" alt="Collage Image 6">
+        <img class="image7" src="7.jpg" alt="Collage Image 7">
+        <img class="image8" src="8.jpg" alt="Collage Image 8">
+        <img class="image9" src="9.jpg" alt="Collage Image 9">
+        <img class="image10" src="10.jpg" alt="Collage Image 10">
+        <img class="image11" src="11.jpg" alt="Collage Image 11">
+    </div>
+
+    <!-- Envelope container in the center -->
+    <div class="container" onclick="openEnvelope()">
+        <div class="envelope">
+            <div class="flap" id="flap"></div>
+            <div class="message" id="message">
+                Happy Monthsary! 🎉<br>
+                Thank you for all the wonderful moments we've shared. Here's to many more! 💖
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open the envelope when clicked
+        function openEnvelope() {
+            const flap = document.getElementById("flap");
+            const message = document.getElementById("message");
+            flap.style.transform = "rotateX(-180deg)"; // Open the flap
+            message.style.opacity = "1"; // Reveal the message
+        }
+    </script>
+</body>
+</html>
